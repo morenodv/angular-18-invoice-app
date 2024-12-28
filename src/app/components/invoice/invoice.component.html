@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card my-3">
+    <div class="card-header">
+      <h2>Ejemplo Factura</h2>
+    </div>
+    <div class="card-body">
+      <div>
+        <invoice-view [id]="invoice.id"  [name]="invoice.name"></invoice-view>
+      </div>
+      <div class="row my-3">
+        <div class="col">
+          <client-view [client]="invoice.client" ></client-view>
+        </div>
+        <div class="col">
+          <company-view [company]="invoice.company"></company-view>
+        </div>
+        <list-items [items]="invoice.items" (removeEventEmitter)="removeItem($event)"></list-items> 
+        <app-total [total]="invoice.total"></app-total>
+        <form-item (addItemEventEmitter)="addItem($event)"></form-item>
+      </div>
+    </div>
+  </div>
+</div>
